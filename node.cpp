@@ -6,11 +6,16 @@ Node::Node(string name, float x, float y)
     this->x = x;
     this->y = y;
     g = f = numeric_limits<float>::infinity();
-    closed = false;
-    used = false;
+    closed = opened =  false;
 }
 
-void Node::AddNode(Node *node)
+void Node::reset()
+{
+    closed = false;
+    opened = true;
+}
+
+void Node::addNode(Node *node)
 {
     nodes.push_back(node);
 }

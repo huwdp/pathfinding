@@ -40,15 +40,15 @@ void findPath(Node *start, Node *goal)
         {
             Node *current = (*it);
             float g = start->g + heuristic(start, current);
-            if (!current->used || g < current->g)
+            if (!current->opened || g < current->g)
             {
                 current->g = g;
                 current->f = g + heuristic(current, goal);
                 best->parent = current;
                 current->child = best;
-                if (!current->used)
+                if (!current->opened)
                 {
-                    current->used = true;
+                    current->opened = true;
                     open.push(current);
                 }
             }
@@ -73,11 +73,11 @@ int main()
     Node *node3 = new Node("3", 8.0f, 8.0f);
     Node *node4 = new Node("4", 8.0f, 9.0f);
     Node *node5 = new Node("5", 10.0f, 10.0f);
-    node1->AddNode(node2);
-    node2->AddNode(node5);
-    node1->AddNode(node3);
-    node3->AddNode(node4);
-    node4->AddNode(node5);
+    node1->addNode(node2);
+    node2->addNode(node5);
+    node1->addNode(node3);
+    node3->addNode(node4);
+    node4->addNode(node5);
     findPath(node1, node5);
     printPath(node1);
     delete node1;

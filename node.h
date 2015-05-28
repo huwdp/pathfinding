@@ -16,7 +16,8 @@ public:
     Node *child;
     vector<Node*> nodes;
     bool closed;
-    bool used;
+    bool opened;
     Node(string name, float x, float y);
-    void AddNode(Node *node);
+    void addNode(Node *node);
+    void reset();
 };
