@@ -36,7 +36,7 @@ void findPath(Node *start, Node *goal)
                 prev->parent = best;
             return;
         }
-        for (std::vector<Node*>::iterator it = best->nodes.begin() ; it != best->nodes.end(); ++it)
+        for (vector<Node*>::iterator it = best->nodes.begin() ; it != best->nodes.end(); ++it)
         {
             Node *current = (*it);
             float g = start->g + heuristic(start, current);
