@@ -10,6 +10,7 @@
 #include "comparef.h"
 
 using namespace std;
+const int MAX_LOOP = 40000;
 
 float heuristic(struct Node *node, struct Node *next)
 {
@@ -18,15 +19,19 @@ float heuristic(struct Node *node, struct Node *next)
     return sqrt(dx * dx + dy * dy);
 }
 
-void findPath(Node *start, Node *goal)
+bool findPath(Node *start, Node *goal)
 {
     priority_queue<Node*, vector<Node*>, CompareF> open;
     start->g = 0;
     start->f = 0;
     open.push(start);
     Node *prev;
+    int count = 2;
     while (!open.empty())
     {
+        if (count > MAX_LOOP)
+            return false;
+        count++;
         Node *best = open.top();
         open.pop();
         best->closed = true;
@@ -34,7 +39,7 @@ void findPath(Node *start, Node *goal)
         {
             if (prev != NULL)
                 prev->parent = best;
-            return;
+            return true;
         }
         for (vector<Node*>::iterator it = best->nodes.begin() ; it != best->nodes.end(); ++it)
         {
@@ -55,15 +60,26 @@ void findPath(Node *start, Node *goal)
         }
         prev = best;
     }
+    return false;
 }
 
-void printPath(Node *node)
+void printPath(vector<Node*> nodes)
 {
+    for (vector<Node*>::iterator it = nodes.begin() ; it != nodes.end(); ++it)
+    {
+        cout << "Node" << (*it)->name << endl;
+    }
+}
+
+vector<Node*> getPath(Node *node)
+{
+    vector<Node *> nodes;
     while (node != NULL)
     {
-        cout << "Node" << node->name << endl;
+        nodes.push_back(node);
         node = node->parent;
     }
+    return nodes;
 }
 
 int main()
@@ -78,8 +94,8 @@ int main()
     node1->addNode(node3);
     node3->addNode(node4);
     node4->addNode(node5);
-    findPath(node1, node5);
-    printPath(node1);
+    if (findPath(node1, node5))
+        printPath(getPath(node1));
     delete node1;
     delete node2;
     delete node3;
