@@ -26,7 +26,7 @@ bool findPath(Node *start, Node *goal)
     start->f = 0;
     open.push(start);
     Node *prev;
-    int count = 2;
+    int count = 0;
     while (!open.empty())
     {
         if (count > MAX_LOOP)

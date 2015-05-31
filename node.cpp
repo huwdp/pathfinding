@@ -12,7 +12,7 @@ Node::Node(string name, float x, float y)
 void Node::reset()
 {
     closed = false;
-    opened = true;
+    opened = false;
 }
 
 void Node::addNode(Node *node)
