@@ -10,7 +10,6 @@
 #include "comparef.h"
 
 using namespace std;
-const int MAX_LOOP = 40000;
 
 float heuristic(struct Node *node, struct Node *next)
 {
@@ -26,12 +25,8 @@ bool findPath(Node *start, Node *goal)
     start->f = 0;
     open.push(start);
     Node *prev;
-    int count = 0;
     while (!open.empty())
     {
-        if (count > MAX_LOOP)
-            return false;
-        count++;
         Node *best = open.top();
         open.pop();
         best->closed = true;
