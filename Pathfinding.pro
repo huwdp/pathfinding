@@ -15,4 +15,12 @@ CONFIG   -= app_bundle
 TEMPLATE = app
 
 
-SOURCES += main.cpp
+SOURCES += main.cpp \
+    node.cpp
+
+DISTFILES += \
+    LICENSE.txt
+
+HEADERS += \
+    comparef.h \
+    node.h
