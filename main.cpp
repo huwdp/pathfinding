@@ -11,7 +11,7 @@
 
 using namespace std;
 
-float heuristic(struct Node *node, struct Node *next)
+float heuristic(Node *node, Node *next)
 {
     float dx = (node->x - next->x);
     float dy = (node->y - next->y);
