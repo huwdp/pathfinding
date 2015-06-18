@@ -18,6 +18,6 @@ public:
     bool closed;
     bool opened;
     Node(string name, float x, float y);
-    void addNode(Node *node);
+    void addNode(Node *);
     void reset();
 };

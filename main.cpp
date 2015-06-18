@@ -1,80 +1,18 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <math.h>
-#include <vector>
-#include <string>
-#include <iostream>
-#include <queue>
-
+#include "astar.h"
+#include "dijkstra.h"
 #include "node.h"
 #include "comparef.h"
 
 using namespace std;
 
-float heuristic(Node *node, Node *next)
+void printPath(list<Node*> nodes)
 {
-    float dx = (node->x - next->x);
-    float dy = (node->y - next->y);
-    return sqrt(dx * dx + dy * dy);
-}
-
-bool findPath(Node *start, Node *goal)
-{
-    priority_queue<Node*, vector<Node*>, CompareF> open;
-    start->g = 0;
-    start->f = 0;
-    open.push(start);
-    Node *prev;
-    while (!open.empty())
-    {
-        Node *best = open.top();
-        open.pop();
-        best->closed = true;
-        if (best == goal)
-        {
-            if (prev != NULL)
-                prev->parent = best;
-            return true;
-        }
-        for (vector<Node*>::iterator it = best->nodes.begin() ; it != best->nodes.end(); ++it)
-        {
-            Node *current = (*it);
-            float g = start->g + heuristic(start, current);
-            if (!current->opened || g < current->g)
-            {
-                current->g = g;
-                current->f = g + heuristic(current, goal);
-                best->parent = current;
-                current->child = best;
-                if (!current->opened)
-                {
-                    current->opened = true;
-                    open.push(current);
-                }
-            }
-        }
-        prev = best;
-    }
-    return false;
-}
-
-void printPath(vector<Node*> nodes)
-{
-    for (vector<Node*>::iterator it = nodes.begin() ; it != nodes.end(); ++it)
+    for (list<Node*>::iterator it = nodes.begin() ; it != nodes.end(); ++it)
     {
         cout << "Node" << (*it)->name << endl;
     }
-}
-
-vector<Node*> getPath(Node *node)
-{
-    vector<Node *> nodes;
-    while (node != NULL)
-    {
-        nodes.push_back(node);
-        node = node->parent;
-    }
-    return nodes;
 }
 
 int main()
@@ -89,12 +27,29 @@ int main()
     node1->addNode(node3);
     node3->addNode(node4);
     node4->addNode(node5);
-    if (findPath(node1, node5))
-        printPath(getPath(node1));
+
+    AStar *astar = new AStar(EUCLIDEAN);
+    if (astar->findPath(node1, node5))
+       printPath(astar->getPath(node5));
+
+    node1->reset();
+    node2->reset();
+    node3->reset();
+    node4->reset();
+    node5->reset();
+
+    cout << endl;
+
+    Dijkstra *dijkstra = new Dijkstra();
+    if (dijkstra->findPath(node1, node5))
+       printPath(dijkstra->getPath(node5));
+
     delete node1;
     delete node2;
     delete node3;
     delete node4;
     delete node5;
+    delete dijkstra;
+    delete astar;
     return 0;
 }

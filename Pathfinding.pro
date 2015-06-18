@@ -16,11 +16,17 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp \
-    node.cpp
+    node.cpp \
+    astar.cpp \
+    dijkstra.cpp \
+    pathfinder.cpp
 
 DISTFILES += \
     LICENSE.txt
 
 HEADERS += \
     comparef.h \
-    node.h
+    node.h \
+    astar.h \
+    dijkstra.h \
+    pathfinder.h
