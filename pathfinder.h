@@ -12,6 +12,7 @@ class Pathfinder
 {
 public:
     Pathfinder();
+    ~Pathfinder();
     heuristicType type;
     bool findPath(Node *, Node *);
     list<Node*> getPath(Node *);

@@ -6,13 +6,17 @@ Pathfinder::Pathfinder()
 
 }
 
+Pathfinder::~Pathfinder()
+{
+
+}
+
 bool Pathfinder::findPath(Node *start, Node *goal)
 {
     priority_queue<Node*, vector<Node*>, CompareF> open;
     start->g = 0;
     start->f = 0;
     open.push(start);
-    Node *prev;
     while (!open.empty())
     {
         Node *best = open.top();
@@ -38,7 +42,6 @@ bool Pathfinder::findPath(Node *start, Node *goal)
                 }
             }
         }
-        prev = best;
     }
     return false;
 }
