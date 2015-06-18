@@ -2,7 +2,6 @@
 
 Dijkstra::Dijkstra() : Pathfinder()
 {
-
 }
 
 Dijkstra::~Dijkstra()

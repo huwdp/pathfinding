@@ -6,7 +6,7 @@
 #include <queue>
 #include "node.h"
 
-enum heuristicType { NONE, MANHATTAN, DIAGONAL, EUCLIDEAN };
+enum heuristicType { MANHATTAN, DIAGONAL, EUCLIDEAN };
 
 class Pathfinder
 {
