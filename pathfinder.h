@@ -7,6 +7,7 @@
 #include "node.h"
 
 enum heuristicType { MANHATTAN, DIAGONAL, EUCLIDEAN };
+enum pathfinderType { ASTAR, DIJKSTRA };
 
 class Pathfinder
 {

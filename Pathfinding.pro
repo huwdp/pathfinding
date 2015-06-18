@@ -19,7 +19,10 @@ SOURCES += main.cpp \
     node.cpp \
     astar.cpp \
     dijkstra.cpp \
-    pathfinder.cpp
+    pathfinder.cpp \
+    test.cpp \
+    testharness.cpp \
+    testtype.cpp
 
 DISTFILES += \
     LICENSE.txt
@@ -29,4 +32,7 @@ HEADERS += \
     node.h \
     astar.h \
     dijkstra.h \
-    pathfinder.h
+    pathfinder.h \
+    test.h \
+    testharness.h \
+    testtype.h
