@@ -5,9 +5,7 @@ Node::Node(string name, float x, float y)
     this->name = name;
     this->x = x;
     this->y = y;
-    parent = NULL;
-    g = f = numeric_limits<float>::infinity();
-    closed = opened =  false;
+    reset();
 }
 
 void Node::reset()
