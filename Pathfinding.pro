@@ -14,25 +14,25 @@ CONFIG   -= app_bundle
 
 TEMPLATE = app
 
-
-SOURCES += main.cpp \
-    node.cpp \
-    astar.cpp \
-    dijkstra.cpp \
-    pathfinder.cpp \
-    test.cpp \
-    testharness.cpp \
-    testtype.cpp
-
-DISTFILES += \
-    LICENSE.txt
-
 HEADERS += \
-    comparef.h \
-    node.h \
-    astar.h \
-    dijkstra.h \
-    pathfinder.h \
-    test.h \
-    testharness.h \
-    testtype.h
+    src/astar.h \
+    src/comparef.h \
+    src/dijkstra.h \
+    src/node.h \
+    src/pathfinder.h \
+    src/test.h \
+    src/testharness.h \
+    src/testtype.h
+
+SOURCES += \
+    src/astar.cpp \
+    src/dijkstra.cpp \
+    src/main.cpp \
+    src/node.cpp \
+    src/pathfinder.cpp \
+    src/test.cpp \
+    src/testharness.cpp \
+    src/testtype.cpp
+
+
+
