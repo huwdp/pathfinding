@@ -6,8 +6,10 @@ using namespace std;
 
 class TestHarness
 {
+private:
+    vector<Test *> tests;
 public:
     TestHarness();
     ~TestHarness();
-    vector<Test *> tests;
+    void checkTests();
 };
