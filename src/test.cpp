@@ -84,6 +84,10 @@ bool Test::isTrue()
            cout << "No pathfinder selected." << endl;
            return false;
        }
+       for (vector<Node*>::iterator it = nodes.begin(); it != nodes.end(); ++it)
+       {
+           (*it)->reset();
+       }
    }
    return true;
 }
