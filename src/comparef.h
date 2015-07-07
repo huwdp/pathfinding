@@ -5,7 +5,7 @@ class CompareF {
 public:
     bool operator()(Node *node1, Node* node2)
     {
-        if (node1->f < node2->f) return true;
+        if (node1->getF() < node2->getF()) return true;
             return false;
     }
 };

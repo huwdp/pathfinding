@@ -52,7 +52,6 @@ bool Test::isTrue()
 {
     // Foreach pathfinder
     //  Check if result is expected, if not then return false
-
    for (vector<TestType>::iterator it = testTypes.begin(); it != testTypes.end(); ++it)
    {
        if ((*it).getPathfinderType() == ASTAR)

@@ -11,9 +11,24 @@ AStar::AStar(heuristicType type) : Pathfinder()
     d = d2 = 1;
 }
 
-AStar::~AStar()
+float AStar::getD()
 {
+    return d;
+}
 
+void AStar::setD(float value)
+{
+    d = value;
+}
+
+float AStar::getD2()
+{
+    return d2;
+}
+
+void AStar::setD2(float value)
+{
+    d2 = value;
 }
 
 float AStar::heuristic(Node *node, Node *next)
@@ -35,21 +50,21 @@ float AStar::heuristic(Node *node, Node *next)
 
 float AStar::manhattan(Node *node, Node *next)
 {
-    float dx = fabs(node->x - next->x);
-    float dy = fabs(node->y - next->y);
+    float dx = fabs(node->getX() - next->getX());
+    float dy = fabs(node->getY() - next->getY());
     return d * (dx + dy);
 }
 
 float AStar::diagonal(Node *node, Node *next)
 {
-    float dx = fabs(node->x - next->x);
-    float dy = fabs(node->y - next->y);
+    float dx = fabs(node->getX() - next->getX());
+    float dy = fabs(node->getY() - next->getY());
     return d * (dx + dy) + (d2 - 2 * d) * min(dx, dy);
 }
 
 float AStar::euclidean(Node *node, Node *next)
 {
-    float dx = fabs(node->x - next->x);
-    float dy = fabs(node->y - next->y);
+    float dx = fabs(node->getX() - next->getX());
+    float dy = fabs(node->getY() - next->getY());
     return d * sqrt(dx * dx + dy * dy);
 }

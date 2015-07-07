@@ -6,22 +6,27 @@ Pathfinder::Pathfinder()
 
 }
 
-Pathfinder::~Pathfinder()
+heuristicType Pathfinder::getHeuristicType()
 {
+    return type;
+}
 
+void Pathfinder::setHeuristicType(heuristicType type)
+{
+    this->type = type;
 }
 
 bool Pathfinder::findPath(Node *start, Node *goal)
 {
     priority_queue<Node*, vector<Node*>, CompareF> open;
-    start->g = 0;
-    start->f = 0;
+    start->setG(0);
+    start->setF(0);
     open.push(start);
     while (!open.empty())
     {
         Node *best = open.top();
         open.pop();
-        best->closed = true;
+        best->setClosed(true);
         if (best == goal)
         {
             return true;
@@ -29,15 +34,15 @@ bool Pathfinder::findPath(Node *start, Node *goal)
         for (vector<Node*>::iterator it = best->nodes.begin() ; it != best->nodes.end(); ++it)
         {
             Node *current = (*it);
-            float g = start->g + heuristic(start, current);
-            if (!current->opened || g < current->g)
+            float g = start->getG() + heuristic(start, current);
+            if (!current->getOpened() || g < current->getG())
             {
-                current->g = g;
-                current->f = g + heuristic(current, goal);
-                current->parent = best;
-                if (!current->opened)
+                current->setG(g);
+                current->setF(g + heuristic(current, goal));
+                current->setParent(best);
+                if (!current->getOpened())
                 {
-                    current->opened = true;
+                    current->setOpened(true);
                     open.push(current);
                 }
             }
@@ -52,7 +57,7 @@ list<Node*> Pathfinder::getPath(Node *node)
     while (node != NULL)
     {
         nodes.push_front(node);
-        node = node->parent;
+        node = node->getParent();
     }
     return nodes;
 }

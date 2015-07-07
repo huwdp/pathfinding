@@ -11,12 +11,14 @@ enum pathfinderType { ASTAR, DIJKSTRA };
 
 class Pathfinder
 {
+protected:
+    heuristicType type;
 public:
     Pathfinder();
-    ~Pathfinder();
-    heuristicType type;
     bool findPath(Node *, Node *);
     list<Node*> getPath(Node *);
+    heuristicType getHeuristicType();
+    void setHeuristicType(heuristicType);
     virtual float heuristic(Node *, Node *) = 0;
 };
 
