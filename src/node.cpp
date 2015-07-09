@@ -12,7 +12,7 @@ void Node::reset()
 {
     opened = closed = false;
     g = f = numeric_limits<float>::infinity();
-    parent = NULL;
+    parent = nullptr;
 }
 
 void Node::addNode(Node *node)
