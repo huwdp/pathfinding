@@ -36,6 +36,5 @@ public:
     vector<Node*> getNodes();
     void setNodes(vector<Node*>);
     void addNode(Node *);
-    // add remove node
     void reset();
 };

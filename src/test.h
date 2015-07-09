@@ -16,7 +16,6 @@ public:
     Test();
     ~Test();
     void addNode(Node *);
-    void removeNode(Node *);
     void setStart(Node *);
     Node *getStart();
     void setGoal(Node *);

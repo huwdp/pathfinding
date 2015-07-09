@@ -18,11 +18,6 @@ void Test::addNode(Node *node)
     nodes.push_back(node);
 }
 
-void Test::removeNode(Node *node)
-{
-    // Code here
-}
-
 void Test::setStart(Node *node)
 {
     start = node;
