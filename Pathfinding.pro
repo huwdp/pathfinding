@@ -24,7 +24,8 @@ HEADERS += \
     src/pathfinder.h \
     src/test.h \
     src/testharness.h \
-    src/testtype.h
+    src/testtype.h \
+    src/math/compare.h
 
 SOURCES += \
     src/astar.cpp \
@@ -34,7 +35,8 @@ SOURCES += \
     src/pathfinder.cpp \
     src/test.cpp \
     src/testharness.cpp \
-    src/testtype.cpp
+    src/testtype.cpp \
+    src/math/compare.cpp
 
 
 

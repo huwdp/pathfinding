@@ -54,7 +54,7 @@ bool Pathfinder::findPath(Node *start, Node *goal)
 list<Node*> Pathfinder::getPath(Node *node)
 {
     list<Node *> nodes;
-    while (node != NULL)
+    while (node != nullptr)
     {
         nodes.push_front(node);
         node = node->getParent();
