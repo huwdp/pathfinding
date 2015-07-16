@@ -7,20 +7,20 @@
 class Test
 {
 private:
-    vector<Node *> nodes;
-    Node *start;
-    Node *goal;
+    vector<INode *> nodes;
+    INode *start;
+    INode *goal;
     vector<TestType> testTypes; // The test types, ASTAR, DIJKSTRA, etc.
-    list<Node *> expected;      // Expected results
+    list<INode *> expected;      // Expected results
 public:
     Test();
     ~Test();
-    void addNode(Node *);
-    void setStart(Node *);
-    Node *getStart();
-    void setGoal(Node *);
-    Node *getGoal();
-    void addExpected(Node *);
+    void addNode(INode *);
+    void setStart(INode *);
+    INode *getStart();
+    void setGoal(INode *);
+    INode *getGoal();
+    void addExpected(INode *);
     bool isTrue();
     void addTestType(TestType);
 };

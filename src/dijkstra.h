@@ -6,5 +6,5 @@ class Dijkstra : public Pathfinder
 public:
     Dijkstra();
     ~Dijkstra();
-    float heuristic(Node *, Node *);
+    float heuristic(INode *, INode *);
 };

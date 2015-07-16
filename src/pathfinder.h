@@ -4,7 +4,7 @@
 #include <string>
 #include <iostream>
 #include <queue>
-#include "node.h"
+#include "inode.h"
 
 enum heuristicType { MANHATTAN, DIAGONAL, EUCLIDEAN };
 enum pathfinderType { ASTAR, DIJKSTRA };
@@ -15,10 +15,11 @@ protected:
     heuristicType type;
 public:
     Pathfinder();
-    bool findPath(Node *, Node *);
-    list<Node*> getPath(Node *);
+    virtual ~Pathfinder();
+    bool findPath(INode *, INode *);
+    list<INode*> getPath(INode *);
     heuristicType getHeuristicType();
     void setHeuristicType(heuristicType);
-    virtual float heuristic(Node *, Node *) = 0;
+    virtual float heuristic(INode *, INode *) = 0;
 };
 

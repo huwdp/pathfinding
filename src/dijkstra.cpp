@@ -9,7 +9,7 @@ Dijkstra::~Dijkstra()
 
 }
 
-float Dijkstra::heuristic(Node *, Node *)
+float Dijkstra::heuristic(INode *, INode *)
 {
     return 0.0f;
 }

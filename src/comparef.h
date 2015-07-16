@@ -1,9 +1,9 @@
 #pragma once
-#include "node.h"
+#include "inode.h"
 
 class CompareF {
 public:
-    bool operator()(Node *node1, Node* node2)
+    bool operator()(INode *node1, INode* node2)
     {
         if (node1->getF() < node2->getF()) return true;
             return false;

@@ -1,5 +1,4 @@
 #include "astar.h"
-
 /*
  * http://theory.stanford.edu/~amitp/GameProgramming/Heuristics.html
  * Heuristics from Amit's Thoughts on Pathfinding
@@ -10,6 +9,12 @@ AStar::AStar(heuristicType type) : Pathfinder()
     this->type = type;
     d = d2 = 1;
 }
+
+AStar::~AStar()
+{
+
+}
+
 
 float AStar::getD()
 {
@@ -31,7 +36,7 @@ void AStar::setD2(float value)
     d2 = value;
 }
 
-float AStar::heuristic(Node *node, Node *next)
+float AStar::heuristic(INode *node, INode *next)
 {
     switch (type)
     {
@@ -48,21 +53,21 @@ float AStar::heuristic(Node *node, Node *next)
     return 1;
 }
 
-float AStar::manhattan(Node *node, Node *next)
+float AStar::manhattan(INode *node, INode *next)
 {
     float dx = fabs(node->getX() - next->getX());
     float dy = fabs(node->getY() - next->getY());
     return d * (dx + dy);
 }
 
-float AStar::diagonal(Node *node, Node *next)
+float AStar::diagonal(INode *node, INode *next)
 {
     float dx = fabs(node->getX() - next->getX());
     float dy = fabs(node->getY() - next->getY());
     return d * (dx + dy) + (d2 - 2 * d) * min(dx, dy);
 }
 
-float AStar::euclidean(Node *node, Node *next)
+float AStar::euclidean(INode *node, INode *next)
 {
     float dx = fabs(node->getX() - next->getX());
     float dy = fabs(node->getY() - next->getY());

@@ -7,18 +7,18 @@
 
 using namespace std;
 
-class Node
+class INode
 {
 private:
     float x, y;
     float g, f;
     string name;
-    Node *parent;
+    INode *parent;
     bool closed;
     bool opened;
 public:
-    vector<Node*> nodes;
-    Node(string, float, float);
+    vector<INode*> nodes;
+    INode(string, float, float);
     float getX();
     void setX(float);
     float getY();
@@ -27,14 +27,14 @@ public:
     void setG(float);
     float getF();
     void setF(float);
-    Node *getParent();
-    void setParent(Node *);
+    INode *getParent();
+    void setParent(INode *);
     float getClosed();
     void setClosed(bool);
     float getOpened();
     void setOpened(bool);
-    vector<Node*> getNodes();
-    void setNodes(vector<Node*>);
-    void addNode(Node *);
+    vector<INode*> getNodes();
+    void setNodes(vector<INode*>);
+    void addNode(INode *);
     void reset();
 };

@@ -7,38 +7,38 @@ Test::Test()
 
 Test::~Test()
 {
-    for (vector<Node*>::iterator it = nodes.begin(); it != nodes.end(); ++it)
+    for (vector<INode*>::iterator it = nodes.begin(); it != nodes.end(); ++it)
     {
         delete (*it);
     }
 }
 
-void Test::addNode(Node *node)
+void Test::addNode(INode *node)
 {
     nodes.push_back(node);
 }
 
-void Test::setStart(Node *node)
+void Test::setStart(INode *node)
 {
     start = node;
 }
 
-Node *Test::getStart()
+INode *Test::getStart()
 {
     return start;
 }
 
-void Test::setGoal(Node *node)
+void Test::setGoal(INode *node)
 {
     goal = node;
 }
 
-Node *Test::getGoal()
+INode *Test::getGoal()
 {
     return goal;
 }
 
-void Test::addExpected(Node *node)
+void Test::addExpected(INode *node)
 {
     expected.push_back(node);
 }
@@ -78,7 +78,7 @@ bool Test::isTrue()
            cout << "No pathfinder selected." << endl;
            return false;
        }
-       for (vector<Node*>::iterator it = nodes.begin(); it != nodes.end(); ++it)
+       for (vector<INode*>::iterator it = nodes.begin(); it != nodes.end(); ++it)
        {
            (*it)->reset();
        }

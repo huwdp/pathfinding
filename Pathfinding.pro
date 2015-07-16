@@ -20,23 +20,23 @@ HEADERS += \
     src/astar.h \
     src/comparef.h \
     src/dijkstra.h \
-    src/node.h \
     src/pathfinder.h \
     src/test.h \
     src/testharness.h \
     src/testtype.h \
-    src/math/compare.h
+    src/math/compare.h \
+    src/inode.h
 
 SOURCES += \
     src/astar.cpp \
     src/dijkstra.cpp \
     src/main.cpp \
-    src/node.cpp \
     src/pathfinder.cpp \
     src/test.cpp \
     src/testharness.cpp \
     src/testtype.cpp \
-    src/math/compare.cpp
+    src/math/compare.cpp \
+    src/inode.cpp
 
 
 
