@@ -1,5 +1,6 @@
 #include "pathfinder.h"
 #include "comparef.h"
+#include "math/compare.h"
 
 Pathfinder::Pathfinder()
 {
@@ -35,7 +36,7 @@ bool Pathfinder::findPath(Node *start, Node *goal)
         {
             Node *current = (*it);
             float g = start->getG() + heuristic(start, current);
-            if (!current->getOpened() || g < current->getG())
+            if (!current->getOpened() || Compare::isUnder(g, current->getG()))
             {
                 current->setG(g);
                 current->setF(g + heuristic(current, goal));
