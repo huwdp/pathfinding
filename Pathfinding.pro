@@ -25,7 +25,8 @@ HEADERS += \
     src/testharness.h \
     src/testtype.h \
     src/math/compare.h \
-    src/inode.h
+    src/inode.h \
+    src/node.h
 
 SOURCES += \
     src/astar.cpp \
@@ -36,7 +37,8 @@ SOURCES += \
     src/testharness.cpp \
     src/testtype.cpp \
     src/math/compare.cpp \
-    src/inode.cpp
+    src/inode.cpp \
+    src/node.cpp
 
 
 

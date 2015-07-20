@@ -1,31 +1,32 @@
 #include "testharness.h"
 #include "inode.h"
+#include "node.h"
 
 TestHarness::TestHarness()
 {
     // Test 1
     Test *test1 = new Test();
-    INode *Node1 = new INode("1", 1.0f, 1.0f);
-    INode *Node2 = new INode("2", 1.0f, 2.0f);
-    INode *Node3 = new INode("3", 8.0f, 8.0f);
-    INode *Node4 = new INode("4", 8.0f, 9.0f);
-    INode *Node5 = new INode("5", 10.0f, 10.0f);
-    Node1->addNode(Node2);
-    Node2->addNode(Node5);
-    Node1->addNode(Node3);
-    Node3->addNode(Node4);
-    Node4->addNode(Node5);
-    test1->addNode(Node1);
-    test1->addNode(Node2);
-    test1->addNode(Node3);
-    test1->addNode(Node4);
-    test1->addNode(Node5);
-    test1->setStart(Node1);
-    test1->setGoal(Node5);
+    INode *node1 = new Node("1", 1.0f, 1.0f);
+    INode *node2 = new Node("2", 1.0f, 2.0f);
+    INode *node3 = new Node("3", 8.0f, 8.0f);
+    INode *node4 = new Node("4", 8.0f, 9.0f);
+    INode *node5 = new Node("5", 10.0f, 10.0f);
+    node1->addNode(node2);
+    node2->addNode(node5);
+    node1->addNode(node3);
+    node3->addNode(node4);
+    node4->addNode(node5);
+    test1->addNode(node1);
+    test1->addNode(node2);
+    test1->addNode(node3);
+    test1->addNode(node4);
+    test1->addNode(node5);
+    test1->setStart(node1);
+    test1->setGoal(node5);
     test1->addTestType(TestType(ASTAR,EUCLIDEAN));
-    test1->addExpected(Node1);
-    test1->addExpected(Node2);
-    test1->addExpected(Node5);
+    test1->addExpected(node1);
+    test1->addExpected(node2);
+    test1->addExpected(node5);
     this->tests.push_back(test1);
 }
 
