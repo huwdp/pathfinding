@@ -38,3 +38,5 @@ public:
     void addNode(INode *);
     void reset();
 };
+
+

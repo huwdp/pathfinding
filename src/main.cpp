@@ -8,5 +8,5 @@ int main()
 {
     TestHarness *testHarness = new TestHarness();
     testHarness->checkTests();
-    return 0;
+    return 1;
 }

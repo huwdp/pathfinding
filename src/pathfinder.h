@@ -5,6 +5,7 @@
 #include <iostream>
 #include <queue>
 #include "inode.h"
+#include <cstdint>
 
 enum heuristicType { MANHATTAN, DIAGONAL, EUCLIDEAN };
 enum pathfinderType { ASTAR, DIJKSTRA };

@@ -3,11 +3,10 @@
 #include "inode.h"
 #include "math.h"
 
-
 class AStar : public Pathfinder
 {
 private:
-    int d, d2;
+    uint_least8_t d, d2;
 public:
     AStar(heuristicType);
     ~AStar();
