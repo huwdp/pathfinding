@@ -3,6 +3,7 @@
 #include "testtype.h"
 #include "astar.h"
 #include "dijkstra.h"
+#include "node.h"
 
 class Test
 {

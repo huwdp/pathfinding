@@ -1,6 +1,6 @@
 #include "node.h"
 
-Node::Node(string name, float x, float y) : INode(name, x, y)
+Node::Node(string name, float x, float y) : INode(x, y)
 {
     this->name = name;
 }

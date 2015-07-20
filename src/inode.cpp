@@ -1,8 +1,7 @@
 #include "inode.h"
 
-INode::INode(string name, float x, float y)
+INode::INode(float x, float y)
 {
-    this->name = name;
     this->x = x;
     this->y = y;
     reset();

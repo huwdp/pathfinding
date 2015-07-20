@@ -12,13 +12,12 @@ class INode
 private:
     float x, y;
     float g, f;
-    string name;
     INode *parent;
     bool closed;
     bool opened;
 public:
     vector<INode*> nodes;
-    INode(string, float, float);
+    INode(float, float);
     float getX();
     void setX(float);
     float getY();
