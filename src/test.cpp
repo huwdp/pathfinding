@@ -70,6 +70,16 @@ namespace pathfinder
         expected.push_back(node);
     }
 
+    list<INode*> Test::getExpected()
+    {
+        return expected;
+    }
+
+    void Test::setExpected(list<INode*> nodes)
+    {
+        expected = nodes;
+    }
+
     bool Test::isTrue()
     {
         if (start == nullptr || goal == nullptr)
@@ -77,7 +87,7 @@ namespace pathfinder
             return false;
         }
         // Foreach pathfinder
-        //  Check if result is expected, if not then return false
+        // Check if result is expected, if not then return false
         for (vector<TestType>::iterator it = testTypes.begin(); it != testTypes.end(); ++it)
         {
            if ((*it).getPathfinderType() == ASTAR)

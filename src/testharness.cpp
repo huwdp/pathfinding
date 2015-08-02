@@ -50,13 +50,9 @@ namespace pathfinder
         test1->setGoal(node5);
         test1->addTestType(TestType(ASTAR,EUCLIDEAN));
         test1->addTestType(TestType(DIJKSTRA));
-        test1->addExpected(node1);
-        test1->addExpected(node2);
-        test1->addExpected(node5);
+        list<INode*> expected1 = {node1, node2, node5};
+        test1->setExpected(expected1);
         this->tests.push_back(test1);
-
-
-
 
         Test *test2 = new Test();
         Node *node6 = new Node("6", 0.0f, 0.0f);
@@ -65,8 +61,6 @@ namespace pathfinder
         Node *node9 = new Node("9", 0.0f, -3.0f);
         Node *node10 = new Node("10", -4.0f, -4.0f);
         Node *node11 = new Node("11", 4.0f, -4.0f);
-
-
         node6->addNode(node7);
         node6->addNode(node8);
         node7->addNode(node9);
@@ -74,16 +68,10 @@ namespace pathfinder
         node8->addNode(node9);
         node8->addNode(node11);
         node10->addNode(node11);
-
-
         test2->setStart(node6);
         test2->setGoal(node11);
-
-
-        test2->addExpected(node6);
-        test2->addExpected(node8);
-        test2->addExpected(node11);
-
+        list<INode*> expected2 = {node6, node8, node11};
+        test2->setExpected(expected2);
         test2->addTestType(TestType(DIJKSTRA));
         test2->addTestType(TestType(ASTAR,EUCLIDEAN));
         this->tests.push_back(test2);

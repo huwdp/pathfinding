@@ -50,6 +50,8 @@ namespace pathfinder
         void setGoal(INode *);
         INode *getGoal();
         void addExpected(INode *);
+        list<INode*> getExpected();
+        void setExpected(list<INode*> nodes);
         bool isTrue();
         void addTestType(TestType);
     };
